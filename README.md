@@ -1,10 +1,10 @@
 # @trimble-oss/trimble-id-react
 
-Trimble Identity SDK developer documentation for React apps.
+Trimble Identity SDK for React app.
 
 🚀 [Getting Started](#getting-started) - 📚 [Usage Reference](#usage-reference) - 💬 [Support](#support)
 
-## Getting Started
+## <a name="getting-started">Getting Started</a>
 
 ### Installation
 
@@ -18,9 +18,9 @@ npm install @trimble-oss/trimble-id-react
 
 Create a new application in the [Trimble Developer Console](https://developer.console.trimble.com) portal and configure the following settings:
 
-To register your service application in Trimble Developer Console:
+To register your application in Trimble Developer Console:
 
-1. On the left pane select Identity Management > Applications.
+1. On the left pane select "Applications".
 
 2. On the Applications home page, in the top right corner select + NEW APPLICATION. The Create Application page displays.
 
@@ -34,13 +34,19 @@ To register your service application in Trimble Developer Console:
 
 4. Configure OAuth application grant types as `Authorization Code Grant` and `Use Refresh tokens` in order to use this SDK.
 
-5. Select "Create Application" to save changes.
+5. Configure the desired `callback URL` and `logout URL` for your application. These URLs are used by the SDK to redirect the user after authentication.
+
+6. Select "Create Application" to save changes.
 
 Take note of the Client ID and URLs under the "Basic Information" section. You'll need these values to configure the SDK.
 
+**Scopes**
+
+Trimble Identity uses scopes to determine the aud claim in the returned access token. Scope is mandatory for the application to work. You can use the scope as the application name registered in the Trimble Developer Console. For example, if you have registered an application with the name "test", then it must be registered in the format {some_uuid}-"test". For eg., 12345678-1234-1234-1234-123456789012-test.
+
 For more information, see [Authentication documentation](https://developer.trimble.com/docs/authentication).
 
-## Usage Reference
+## <a name="usage-reference">Usage Reference</a>
 
 ### Configure the SDK
 
@@ -71,7 +77,7 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
         scopes: ['test']
     },
     persistentOptions: {
-      persistentStore:   ('localStorage' as PersistentStore),
+      persistentStore: "localStorage"
   }
   })} onRedirectCallback={handleRedirect}>
     <Component/>
@@ -86,6 +92,7 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
     redirectUrl={"http://localhost:3000/callback"}
     logoutRedirectUrl={"http://localhost:3000/logout-callback"}
     scopes={['test']}
+    persistentStore ={"localStorage"}
     onRedirectCallback={handleRedirect}>
         <Component/>
 </TIDProvider>
@@ -103,10 +110,13 @@ Production: https://id.trimble.com/.well-known/openid-configuration  <br />
 
 ### 2. PersistentOptions configuration
 Type of persistence you want the user and token to be store
+   * **in-memory** - This one will only persist will the user stays in the page. By default, persistence will be in-memory.
    * **localStorage** - This persistent doesn't have expiration date
    * **sessionStorage** - This one is cleared when the page session ends
 
-Use the `useAuth` hook in your components to access authentication state (`isLoading`, `isAuthenticated` and `user`) and authentication methods (`loginWithRedirect` and `logout`):
+
+### useAuth
+Use the `useAuth` hook in your components to access authentication state (`isLoading`, `isAuthenticated`, `user`, `error`) and authentication methods (`loginWithRedirect` and `logout`):
 
 ### loginWithRedirect
 
@@ -147,7 +157,7 @@ Gets the access token from cache. SDK handles token refresh when token expires.
 
 ```tsx
 const {getAccessTokenSilently}= useAuth()
-var access_token = await useAuth().getAccessTokenSilently()
+var access_token = await getAccessTokenSilently()
 ```
 
 ### user
@@ -159,6 +169,15 @@ const {user}= useAuth()
 var name = user?.name
 ```
 
+### error
+
+Property that let the developer know if an error happen during the authentication
+
+```tsx
+const {error}= useAuth()
+var error = error.message
+```
+
 
 ### AuthenticationGuard 
 It renders a component if the user is authenticated, otherwise redirects the user to the login page. It can be used to protect private components. If the user is not authenticated, they will be redirected to the login page.
@@ -168,6 +187,10 @@ It renders a component if the user is authenticated, otherwise redirects the use
 ```
 
 > **_NOTE:_** Refer samples for better understanding.
+
+## Sample Code
+
+See here for [Sample Code](https://github.com/trimble-oss/trimble-id-sdk-docs-for-react/blob/main/samples) for reference.
 
 ## Release notes
 
