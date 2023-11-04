@@ -198,7 +198,7 @@ See here for [releases](https://github.com/trimble-oss/trimble-id-sdk-docs-for-r
 
 ## Raise an issue
 
-To provide feedback or report a bug, please [raise an issue on our issue tracker](https://github.com/trimble-oss/tcp-sdk-docs-for-net/issues).
+To provide feedback or report a bug, please [raise an issue on our issue tracker](https://github.com/trimble-oss/trimble-id-sdk-docs-for-react/issues).
 
 ## <a name="support">Support</a>
 
