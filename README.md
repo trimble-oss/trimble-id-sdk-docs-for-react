@@ -29,7 +29,6 @@ To register your application in Trimble Developer Console:
     | Field       | Description |
     | ----------- | ----------- |
     | Name        | Name of your application                    |
-    | Display Name| Provide a display name of the application.  |
     | Description | Provide a description for the application.  |
 
 4. Configure OAuth application grant types as `Authorization Code Grant` and `Use Refresh tokens` in order to use this SDK.
