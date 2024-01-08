@@ -1,3 +1,7 @@
+# 0.0.2 (2024-01-08)
+
+- Resolved CORS issue, Axios vulnerability fix and some improvement on analytics capture
+
 # 0.0.1 (2023-11-03)
 
 Initial stable version of trimble-id-react SDK
