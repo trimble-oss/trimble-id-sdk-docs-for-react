@@ -182,7 +182,7 @@ var error = error.message
 It renders a component if the user is authenticated, otherwise redirects the user to the login page. It can be used to protect private components. If the user is not authenticated, they will be redirected to the login page.
 
 ```tsx
-<AuthenticationGuard renderComponent={() => <MyPrivateComponent/>}/>
+<AuthenticationGuard renderComponent={<MyPrivateComponent/>}/>
 ```
 
 > **_NOTE:_** Refer samples for better understanding.
