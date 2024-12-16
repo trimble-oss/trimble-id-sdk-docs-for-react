@@ -74,10 +74,7 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
         redirectUrl: "http://localhost:3000/callback",
         logoutRedirectUrl: "http://localhost:3000/logout-callback",
         scopes: ['test']
-    },
-    persistentOptions: {
-      persistentStore: "localStorage"
-  }
+    }
   })} onRedirectCallback={handleRedirect}>
     <Component/>
 </TIDProvider>
@@ -91,7 +88,6 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
     redirectUrl={"http://localhost:3000/callback"}
     logoutRedirectUrl={"http://localhost:3000/logout-callback"}
     scopes={['test']}
-    persistentStore ={"localStorage"}
     onRedirectCallback={handleRedirect}>
         <Component/>
 </TIDProvider>
@@ -107,12 +103,11 @@ Production: https://id.trimble.com/.well-known/openid-configuration  <br />
 * **logoutRedirectUrl** : The URL to which Trimble Identity should redirect after successfully logout a user
 * **scopes** :  The type of credentials you want (openID, or application_name)
 
-### 2. PersistentOptions configuration
-Type of persistence you want the user and token to be store
-   * **in-memory** - This one will only persist will the user stays in the page. By default, persistence will be in-memory.
-   * **localStorage** - This persistent doesn't have expiration date
-   * **sessionStorage** - This one is cleared when the page session ends
+> **_NOTE:_** 
+> 
+> As of version 1.0.0, PersistentOptions have been removed. By default, the SDK now supports in-memory token storage. Using localStorage and sessionStorage for storing sensitive information poses several security risks, including vulnerability to XSS attacks, lack of secure attributes, persistent storage, and session hijacking. 
 
+> When you upgrade to version 1.x, storage options will no longer be available, resulting in a breaking change. For those using an older version of the SDK (i.e., <1.x), it is highly recommended to use the default in-memory storage to avoid any security issues.
 
 ### useAuth
 Use the `useAuth` hook in your components to access authentication state (`isLoading`, `isAuthenticated`, `user`, `error`) and authentication methods (`loginWithRedirect` and `logout`):
@@ -157,6 +152,15 @@ Gets the access token from cache. SDK handles token refresh when token expires.
 ```tsx
 const {getAccessTokenSilently}= useAuth()
 var access_token = await getAccessTokenSilently()
+```
+
+### getTokens
+
+Gets the token details from cache. 
+
+```tsx
+const {getTokens}= useAuth()
+var tokenResponse : TokenResponse = await getTokens()
 ```
 
 ### user
