@@ -16,7 +16,7 @@ npm install @trimble-oss/trimble-id-react
 
 ### Configure Trimble Identity
 
-Create a new application in the [Trimble Developer Console](https://developer.console.trimble.com) portal and configure the following settings:
+Create a new application in the [Trimble Developer Console](https://console.trimble.com) portal and configure the following settings:
 
 To register your application in Trimble Developer Console:
 
