@@ -105,7 +105,7 @@ Production: https://id.trimble.com/.well-known/openid-configuration  <br />
 
 > **_NOTE:_** 
 > 
-> As of version 1.0.0, PersistentOptions have been removed. By default, the SDK now supports in-memory token storage. Using localStorage and sessionStorage for storing sensitive information poses several security risks, including vulnerability to XSS attacks, lack of secure attributes, persistent storage, and session hijacking. 
+> As of version 1.0.0, PersistentOptions have been removed. By default, the SDK now supports in-memory token storage. Using localStorage and sessionStorage for storing sensitive information poses several security risks, including vulnerability to XSS attacks, lack of secure attributes and session hijacking. 
 
 > When you upgrade to version 1.x, storage options will no longer be available, resulting in a breaking change. For those using an older version of the SDK (i.e., <1.x), it is highly recommended to use the default in-memory storage to avoid any security issues.
 
