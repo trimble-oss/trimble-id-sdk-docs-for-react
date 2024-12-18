@@ -1,6 +1,6 @@
 # 1.0.0-rc.1 (2024-12-18)
 
-- `PersistentOptions` have been removed. By default, the SDK now supports in-memory token storage.
+- `PersistentOptions` have been removed. By default, the SDK now supports in-memory token storage. The SDK no longer supports `localStorage` and `sessionStorage`.
 
 # 0.1.0 (2024-11-03)
 
