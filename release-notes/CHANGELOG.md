@@ -1,3 +1,8 @@
+# 1.0.0-rc.2 & 0.1.1 (2025-01-16)
+
+- Fixed the compatibility issue for React 19 & above version
+
+
 # 1.0.0-rc.1 (2024-12-18)
 
 - `PersistentOptions` have been removed. By default, the SDK now supports in-memory token storage. The SDK no longer supports `localStorage` and `sessionStorage`.
