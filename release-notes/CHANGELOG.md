@@ -1,3 +1,13 @@
+# 1.0.0 (2025-03-10)
+
+- Updated trimble-id version to 0.0.7
+- `PersistentOptions` have been removed. By default, the SDK now supports in-memory token storage. The SDK no longer supports `localStorage` and `sessionStorage`.
+- Fixed the compatibility issue for React 19 & above version
+
+# 1.0.0-rc.3 (2025-02-25)
+
+- Updated trimble-id version to 0.0.7
+
 # 1.0.0-rc.2 & 0.1.1 (2025-01-16)
 
 - Fixed the compatibility issue for React 19 & above version

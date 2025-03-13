@@ -1,5 +1,11 @@
 # @trimble-oss/trimble-id-react
 
+> **Important Notice:**
+> 
+> As of version 1.0.0, `PersistentOptions` have been removed. By default, the SDK now supports in-memory token storage. 
+> 
+> When you upgrade to version 1.x, storage options will no longer be available, resulting in a breaking change. For those using an older version of the SDK (i.e., <1.x), it is highly recommended to use the default in-memory storage to avoid any security issues.
+
 Trimble Identity SDK for React app.
 
 🚀 [Getting Started](#getting-started) - 📚 [Usage Reference](#usage-reference) - 💬 [Support](#support)
@@ -102,12 +108,6 @@ Production: https://id.trimble.com/.well-known/openid-configuration  <br />
 * **redirectUrl** : The URL to which Trimble Identity should redirect after successfully authenticating a user
 * **logoutRedirectUrl** : The URL to which Trimble Identity should redirect after successfully logout a user
 * **scopes** :  The type of credentials you want (openID, or application_name)
-
-> **_NOTE:_** 
-> 
-> As of version 1.0.0, PersistentOptions have been removed. By default, the SDK now supports in-memory token storage. Using localStorage and sessionStorage for storing sensitive information poses several security risks, including vulnerability to XSS attacks, lack of secure attributes and session hijacking. 
-
-> When you upgrade to version 1.x, storage options will no longer be available, resulting in a breaking change. For those using an older version of the SDK (i.e., <1.x), it is highly recommended to use the default in-memory storage to avoid any security issues.
 
 ### useAuth
 Use the `useAuth` hook in your components to access authentication state (`isLoading`, `isAuthenticated`, `user`, `error`) and authentication methods (`loginWithRedirect` and `logout`):
