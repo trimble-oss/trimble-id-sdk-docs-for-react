@@ -1,3 +1,6 @@
+## 1.0.1 (2025-07-21)
+- Refactored React SDK to prevent navigation to the redirect URI on page refresh when using AuthenticationGuard, allowing restoration of the previous application state and mitigating CSRF attacks.
+
 # 1.0.0 (2025-03-10)
 
 - Updated trimble-id version to 0.0.7
