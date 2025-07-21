@@ -66,8 +66,7 @@ process related to the authentication for you. Configure the SDK by wrapping you
 
 Here TIDProvider can take two parameters :  
 * **tidClient**  : TID client instance. You can send an instance of the TID Client if you want to handle the initialization yourself
-* **onRedirectCallback** -  When the redirect callback occur this function will be call once the user is login using the TIDClient. This could allow you to redirect the user into another page after the login happen.
-
+* **onRedirectCallback** -  When the redirect callback occur this function will be call once the user is login using the TIDClient. This function receives an `authState` parameter that contains a `redirectTo` property with the user's original location before authentication, allowing you to redirect the user back to their intended destination after login.
 
 After wrapping your app with the TIDProvider, you have to configure the TID credentials registered in TrimbleCloud console. There are two ways of doing this:
 
@@ -99,6 +98,15 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
 </TIDProvider>
 ```
 
+```tsx
+const handleRedirect = (authState) => {
+  // Use redirectTo for automatic redirection to original location
+  const redirectTo = authState.redirectTo || '/dashboard'
+  // Navigate to the intended destination
+  navigate(redirectTo)
+}
+```
+
 Below are the parameters of TIDClient.
 ### 1. TID Client configurations:
 
@@ -120,6 +128,21 @@ Redirect the user to TID using the browser
 const {loginWithRedirect}= useAuth()
 await loginWithRedirect()
 
+```
+
+### handleCallback
+
+Handle OAuth callback to complete user authentication and returns the auth state with redirect path.
+
+```tsx
+const { handleCallback } = useAuth()
+
+// Handle callback and get redirect information
+const authState = await handleCallback()
+
+// Use redirectTo for automatic redirection to original location
+const redirectTo = authState.redirectTo || '/dashboard'
+navigate(redirectTo)
 ```
 
 ### logout
