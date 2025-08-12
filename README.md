@@ -66,7 +66,7 @@ process related to the authentication for you. Configure the SDK by wrapping you
 
 Here TIDProvider can take two parameters :  
 * **tidClient**  : TID client instance. You can send an instance of the TID Client if you want to handle the initialization yourself
-* **onRedirectCallback** -  When the redirect callback occur this function will be call once the user is login using the TIDClient. This function receives an `authState` parameter that contains a `redirectTo` property with the user's original location before authentication, allowing you to redirect the user back to their intended destination after login.
+* **onRedirectCallback** -  When the redirect callback occur this function will be call once the user is login using the TIDClient. This function receives an `authState` parameter that contains a `returnTo` property with the user's original location before authentication, allowing you to redirect the user back to their intended destination after login.
 
 After wrapping your app with the TIDProvider, you have to configure the TID credentials registered in TrimbleCloud console. There are two ways of doing this:
 
@@ -100,10 +100,10 @@ After wrapping your app with the TIDProvider, you have to configure the TID cred
 
 ```tsx
 const handleRedirect = (authState) => {
-  // Use redirectTo for automatic redirection to original location
-  const redirectTo = authState.redirectTo || '/dashboard'
+  // Use returnTo for automatic redirection to original location
+  const returnTo = authState.returnTo || '/'
   // Navigate to the intended destination
-  navigate(redirectTo)
+  navigate(returnTo)
 }
 ```
 
@@ -140,9 +140,9 @@ const { handleCallback } = useAuth()
 // Handle callback and get redirect information
 const authState = await handleCallback()
 
-// Use redirectTo for automatic redirection to original location
-const redirectTo = authState.redirectTo || '/dashboard'
-navigate(redirectTo)
+// Use returnTo for automatic redirection to original location
+const returnTo = authState.returnTo || '/'
+navigate(returnTo)
 ```
 
 ### logout
