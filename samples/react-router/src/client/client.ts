@@ -8,9 +8,6 @@ const tidClient = new TIDClient({
     logoutRedirectUrl: import.meta.env.VITE_LOGOUT_REDIRECT_URL,
     scopes: [import.meta.env.VITE_SCOPES],
   },
-  persistentOptions:{
-    persistentStore: "sessionStorage"
-  }
 })
 
 export default tidClient

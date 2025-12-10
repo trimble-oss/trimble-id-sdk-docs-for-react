@@ -1,5 +1,4 @@
 import { TIDClient } from '@trimble-oss/trimble-id-react'
-import { PersistentStore } from '@trimble-oss/trimble-id-react'
 
 const tidClient = new TIDClient({
   config: {
@@ -8,9 +7,6 @@ const tidClient = new TIDClient({
     redirectUrl: import.meta.env.VITE_REDIRECT_URL,
     logoutRedirectUrl: import.meta.env.VITE_LOGOUT_REDIRECT_URL,
     scopes: [import.meta.env.VITE_SCOPES],
-  },
-  persistentOptions: {
-    persistentStore: "localStorage"
   }
 })
 
