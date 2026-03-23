@@ -1,3 +1,16 @@
+# 1.0.3 (2026-03-18)​
+- Fix vulnerabilities reported by NPM
+- Updated trimble-id version to 1.0.1 
+​
+# 1.0.2 (2026-02-24)​
+- Enhancements
+    - Added account_id support in validate claimset providers
+​
+- Maintenance
+	- Updated trimble-id dependency from 0.0.8 to 1.0.0 (Modernization of modern modular type)
+    - Updated ESLint to latest version
+    - Fixed reported vulnerabilities and lint issues
+​
 # 1.0.1 (2025-07-21)
 - Refactored React SDK to prevent navigation to the redirect URI on page refresh when using AuthenticationGuard, allowing restoration of the previous application state and mitigating CSRF attacks.
 
