@@ -1,3 +1,7 @@
+# 1.0.4 (2026-06-04)
+- Fixed vulnerabilities & ESLint issues
+- Updated trimble-id version to 1.0.3 
+
 # 1.0.3 (2026-03-18)​
 - Fix vulnerabilities reported by NPM
 - Updated trimble-id version to 1.0.1 
